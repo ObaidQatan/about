@@ -1,0 +1,74 @@
+
+    <style>
+        *{
+            object-fit: cover;
+            border-radius: 8px;
+            
+        }
+        #e::after{
+            content: '';
+            display: block;
+            background-color: black;
+            width: 100%;
+            height: 5px;
+            margin: auto;
+            opacity: 10%;
+            border-radius: 10px;
+            
+        }
+    </style>
+    <body style="overflow-x: hidden;">
+
+    <iframe id="vF" style="position: fixed; border: none; border-radius: 5px; background-color: transparent;
+         padding: 5px; margin-left: 7%; width: 0%; max-width: 300px;" >
+    </iframe>
+
+    <div style="margin-top: 0px;" id="aV"></div>
+
+
+<script>
+        
+        
+   const mUrl = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLIfdfBlfbqqskA2qg6cSDTokfBO9NYzfm&ab&maxResults=50&key=AIzaSyAbPAzorfYy4CpPyb-90kZmAtmEl8omNL0";
+fetch(mUrl).then(mResponse =>{return mResponse.json()}).then(data =>{
+getData(data.items);
+}).catch(e =>{console.log(e)});
+
+function getData(data){
+    // console.log(data);
+    data.forEach(element => {
+        var title = element.snippet.title;
+        var img = element.snippet.thumbnails.high.url;
+        var vidUrl = "https://www.youtube.com/embed/" + element.snippet.resourceId.videoId.toString();
+        // console.log(vidUrl);
+        document.getElementById("aV").innerHTML += "<div id='e' style='text-align: center;' onClick='getLink("+'\"'+vidUrl+'\"'+")'>"+"<img src='"+img+"' width=120 height=68/>"+"<p style='margin-top:10px; font-size: small; color: #ffffffc4; '>"+title+"</p>"+"</div>"+"<br/>";
+    });
+}
+
+function getLink(vidUrl) {
+
+    this.onclick = ()=>{
+        
+        document.getElementById("aV").style.transition = "0.5s";
+
+        var src = document.getElementById("vF").getAttribute("src");
+        // console.log(src);
+
+        document.getElementById("vF").style.width = "80%";
+        document.getElementById("vF").style.backgroundColor = "rgb(255 255 255 / 59%)";
+        document.getElementById("vF").style.transition = "0.5s";
+
+        if(src == null){
+            
+            document.getElementById("vF").setAttribute("src" , vidUrl)}
+        else{
+            
+            document.getElementById("vF").removeAttribute("src")
+            document.getElementById("vF").setAttribute("src" , vidUrl)
+        }};
+    
+
+}
+
+</script>    
+    </body>

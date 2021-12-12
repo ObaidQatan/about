@@ -1,0 +1,205 @@
+<head>
+    <style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+    *{
+    transition: 0.3s;
+    font-family: Poppins;
+    user-select: none;
+    }
+        body{
+        background-color: black;
+        color: white;
+        text-align: center;
+        }
+        #profile-img{
+        padding-top: 20px;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        }
+        section{
+        background-color: hsl(0, 0%, 20%);
+        border-radius: 20px;
+        margin: 0 auto;
+        height: 90%;
+        contain: strict;
+        }
+        h3{
+        letter-spacing: 3px;
+        }
+        p{
+        font-size: small;
+        }
+        span{
+        background-color: orange;
+        margin: 5px 10px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: small;
+        letter-spacing: 3px;
+        cursor: pointer;
+        overflow: hidden;
+        width: 90px;
+        height: 15px;
+        }
+        article{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        embed{
+            visibility: hidden;
+            width: 80%;
+            height: 90%;
+            bottom: 0%;
+            border-radius: 20px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.404);
+        }
+        @media only screen and (max-width:400px) {
+            article{
+                flex-direction: column;
+                
+            }
+            span{
+                width: calc(100% - 45px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section>
+    <img id="profile-img" src="./src/dynamic.jpg"/>
+    <h3>Obaid Qatan</h3>
+    <br>
+    <br>
+    <br>
+    <p style="text-align: start; margin-left: 10px; font-weight: bold;">
+        Obaid Qatan, <br>
+        Computer Science Engineering (CSE)<br>
+        Ramaiah Institute of Technology (MSRIT)<br>
+        Hadramout, Ashihr<br>
+        <br><br><br><br>
+        Catch Us On:
+        <br><br>
+    </p>
+    <article>
+    <span id="linkedin" onclick="onLinkedIn()//window.open('https://in.linkedin.com/in/obaid-qatan-7699bb185')"  style="background-color: hsl(216, 100%, 50%);">LinkedIn<br>
+    <embed id="linkedin-embed" src="./link.html"/></span>
+    <span id="youtube" onclick="onYoutube()//window.open('https://www.youtube.com/channel/UCQJo6IDqcw3nuQeEA1wXZ7Q')" style="background-color: hsl(12, 100%, 50%);">YouTube<br>
+    <embed id="youtube-embed" src="./you.html"/></span>
+    <span id="insta" onclick="onInsta()//window.open('https://instagram.com/obekas_dono')" style="background-color: hsl(315, 100%, 40%);">Instagram<br>
+        <embed id="insta-embed" src="./insta.html"/></span>
+    </article>
+
+
+    <h4 id="reset" style=" 
+    display: none;
+    margin: 10px;
+    width: 30px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: black;
+    font: small bold;
+    font-weight: bold;
+    position: fixed;
+    right: 0;
+    top: 10px;
+    opacity: 80%;
+    cursor: pointer;">>></h4>
+
+</section>
+
+
+<script>
+    var lin = document.getElementById("linkedin")
+    var you = document.getElementById("youtube")
+    var insta = document.getElementById("insta")
+    var lin_em = document.getElementById("linkedin-embed")
+    var you_em = document.getElementById("youtube-embed")
+    var insta_em = document.getElementById("insta-embed")
+    var reset = document.getElementById("reset")
+
+    function onInsta(){
+        reset.style.display = 'initial';
+        insta.style.position = 'fixed';
+        insta.style.width = '80%';
+        insta.style.height = '90%';
+        insta.style.margin = '10px auto';
+        insta.style.top = '0';
+        insta.style.right = '0';
+        insta.style.left = '0';
+
+        insta_em.style.visibility = 'visible';
+    }
+    function onYoutube(){
+        reset.style.display = 'initial';
+        you.style.position = 'fixed';
+        you.style.width = '80%';
+        you.style.height = '90%';
+        you.style.margin = '10px auto';
+        you.style.top = '0';
+        you.style.right = '0';
+        you.style.left = '0';
+
+        you_em.style.visibility = 'visible';
+    }
+    function onLinkedIn(){
+        reset.style.display = 'initial';
+        lin.style.position = 'fixed';
+        lin.style.width = '80%';
+        lin.style.height = '90%';
+        lin.style.margin = '10px auto';
+        lin.style.top = '0';
+        lin.style.right = '0';
+        lin.style.left = '0';
+
+        lin_em.style.visibility = 'visible';
+    }
+
+reset.onclick = ()=>{
+        insta.style.position = '';
+        insta.style.width = '';
+        insta.style.height = '';
+        insta.style.margin = '5px 10px';
+        insta.style.top = '';
+        insta.style.right = '';
+        insta.style.left = '';
+
+        insta_em.style.visibility = 'hidden';
+
+
+
+
+        you.style.position = '';
+        you.style.width = '';
+        you.style.height = '';
+        you.style.margin = '5px 10px';
+        you.style.top = '';
+        you.style.right = '';
+        you.style.left = '';
+
+        you_em.style.visibility = 'hidden';
+
+
+
+
+        lin.style.position = '';
+        lin.style.width = '';
+        lin.style.height = '';
+        lin.style.margin = '5px 10px';
+        lin.style.top = '';
+        lin.style.right = '';
+        lin.style.left = '';
+
+        lin_em.style.visibility = 'hidden';
+        
+
+
+
+        reset.style.display = 'none';
+}
+</script>
+</body>
